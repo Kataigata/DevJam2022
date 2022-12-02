@@ -1,4 +1,4 @@
-import { ExampleCard } from 'src/components/ExampleCard/ExampleCard';
+import Monster from 'src/components/Monster/Monster';
 import Head from 'next/head';
 
 export default function Home() {
@@ -11,27 +11,58 @@ export default function Home() {
 			</Head>
 
 			<main className="main">
-				<h1 className="title">Next TypeScript Starter</h1>
+				<h1 className="title">Musical Monsters</h1>
 
 				<section className="grid">
-					<ExampleCard to="https://nextjs.org/docs" title="Documentation">
-						<p>Find in-depth information about Next.js features and API.</p>
-					</ExampleCard>
+					<Monster
+						name="Blurr"
+						picturePath="/images/Blurr.png"
+						soundPath="/sounds/beatbox.mp3"
+					></Monster>
 
-					<ExampleCard to="https://nextjs.org/learn" title="Learn">
-						<p>Learn about Next.js in an interactive course with quizzes!</p>
-					</ExampleCard>
+					<Monster
+						name="Deeblue"
+						picturePath="/images/Deeblue.png"
+						soundPath="/sounds/guitar.mp3"
+					></Monster>
 
-					<ExampleCard to="https://github.com/vercel/next.js/tree/canary/examples" title="Examples">
-						<p>Discover and deploy boilerplate example Next.js projects.</p>
-					</ExampleCard>
+					<Monster
+						name="Green"
+						picturePath="/images/Green.png"
+						soundPath="/sounds/drums.mp3"
+					></Monster>
 
-					<ExampleCard to="https://vercel.com/new" title="Deploy">
-						<p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-					</ExampleCard>
+					<Monster
+						name="Pink"
+						picturePath="/images/Pink.png"
+						soundPath="/sounds/atmospheric.mp3"
+					></Monster>
+
+					<Monster
+						name="Purp"
+						picturePath="/images/Purp.png"
+						soundPath="/sounds/piano.mp3"
+					></Monster>
+
+					<Monster
+						name="Red"
+						picturePath="/images/Red.png"
+						soundPath="/sounds/triangle.mp3"
+					></Monster>
+
+					<Monster
+						name="Rrred"
+						picturePath="/images/Rrred.png"
+						soundPath="/sounds/bassdrop.mp3"
+					></Monster>
+
+					<Monster
+						name="Yella"
+						picturePath="/images/Yella.png"
+						soundPath="/sounds/triangle.mp3"
+					></Monster>
 				</section>
 			</main>
 		</div>
 	);
 }
-
