@@ -5,7 +5,7 @@ import { Monster } from 'utils/types';
 import RealMonster from 'src/components/Monster/Monster';
 import { useContext } from 'react';
 import SomethingIsPlayingContext from 'src/components/Context';
-import MList from 'src/components/List/MList';
+import List from '@mui/material/List';
 
 export default function Home() {
 	//let monsterList: Monster[] = monstersRepo.getAll();
@@ -32,7 +32,7 @@ export default function Home() {
 			<main className="main">
 				<h1 className="title">Musical Monsters</h1>
 				<MonsterMenu></MonsterMenu>
-				<section className="grid">
+				<List>
 					{monsterList.map(
 						(monster: { id: number; name: string; picturePath: string; soundPath: string }) => (
 							<RealMonster
@@ -44,7 +44,7 @@ export default function Home() {
 							></RealMonster>
 						)
 					)}
-				</section>
+				</List>
 			</main>
 		</div>
 	);
