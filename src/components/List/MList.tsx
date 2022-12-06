@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
 import { Monster } from 'utils/types';
 

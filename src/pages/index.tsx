@@ -4,7 +4,7 @@ import MonsterMenu from 'src/components/MonsterMenu/MonsterMenu';
 import { monstersRepo } from '../helpers/monsters-repo';
 import { Monster } from 'utils/types';
 import RealMonster from 'src/components/Monster/Monster';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import SomethingIsPlayingContext from 'src/components/Context';
 import MList from 'src/components/List/MList';
 

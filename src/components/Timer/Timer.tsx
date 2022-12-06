@@ -1,5 +1,5 @@
 import styles from './Timer.module.css';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
 
 export default function Timer(): JSX.Element {
