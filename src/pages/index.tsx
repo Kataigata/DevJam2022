@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Timer from 'src/components/Timer/Timer';
 import MonsterMenu from 'src/components/MonsterMenu/MonsterMenu';
-import { monstersRepo } from '../helpers/monsters-repo';
 import { Monster } from 'utils/types';
 import RealMonster from 'src/components/Monster/Monster';
 import { useContext } from 'react';
@@ -10,8 +9,7 @@ import MList from 'src/components/List/MList';
 
 export default function Home() {
 	//let monsterList: Monster[] = monstersRepo.getAll();
-	const [context, setContext, time, setTime, selectedMonsters, setSelectedMonster] =
-		useContext(SomethingIsPlayingContext);
+	const [selectedMonsters] = useContext(SomethingIsPlayingContext);
 	let monsterList: Monster[] = [];
 
 	if (selectedMonsters !== null && selectedMonsters !== typeof undefined) {

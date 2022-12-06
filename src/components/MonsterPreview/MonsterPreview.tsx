@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from './MonsterPreview.module.css';
-import { monstersRepo } from '../../helpers/monsters-repo';
 import { Monster } from 'utils/types';
 import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
@@ -13,8 +12,7 @@ type MonsterPreviewProps = {
 };
 
 export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element {
-	const [context, setContext, time, setTime, selectedMonsters, setSelectedMonster] =
-		useContext(SomethingIsPlayingContext);
+	const [selectedMonsters, setSelectedMonster] = useContext(SomethingIsPlayingContext);
 
 	function handlePreviewClick() {
 		let selectedMonster: Monster = {

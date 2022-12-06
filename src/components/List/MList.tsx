@@ -3,8 +3,7 @@ import SomethingIsPlayingContext from '../Context';
 import { Monster } from 'utils/types';
 
 export default function MList(): JSX.Element {
-	const [context, setContext, time, setTime, selectedMonsters, setSelectedMonster] =
-		useContext(SomethingIsPlayingContext);
+	const [selectedMonsters, setSelectedMonster] = useContext(SomethingIsPlayingContext);
 
 	function addMonster() {
 		let selectedMonster: Monster = {

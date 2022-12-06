@@ -2,7 +2,6 @@ import Image from 'next/image';
 import React, { useRef } from 'react';
 import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
-import styles from './Monster.module.css';
 
 type MonsterProps = {
 	id: number;
@@ -14,7 +13,7 @@ type MonsterProps = {
 export default function RealMonster(props: MonsterProps): JSX.Element {
 	const { soundPath } = props;
 	let playing = false;
-	const [context, setContext, time] = useContext(SomethingIsPlayingContext);
+	const [setContext, time] = useContext(SomethingIsPlayingContext);
 
 	const roar = useRef<HTMLAudioElement | undefined>(
 		typeof Audio !== 'undefined' ? new Audio(soundPath) : undefined
