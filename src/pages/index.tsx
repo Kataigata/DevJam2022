@@ -15,10 +15,22 @@ export default function Home() {
 	if (selectedMonsters !== null && selectedMonsters !== typeof undefined) {
 		monsterList = selectedMonsters;
 	}
+	let monsterArray = Array.isArray(monsterList)
+		? monsterList.map(
+				(monster: { id: number; name: string; picturePath: string; soundPath: string }) => (
+					<RealMonster
+						key={monster.id}
+						id={monster.id}
+						name={monster.name}
+						picturePath={monster.picturePath}
+						soundPath={monster.soundPath}
+					></RealMonster>
+				)
+		  )
+		: [];
+
 	console.log('context:', selectedMonsters);
 	console.log('actual:', monsterList);
-
-	//setInterval(setList, 1000);
 
 	return (
 		<div className="container">
@@ -32,19 +44,7 @@ export default function Home() {
 			<main className="main">
 				<h1 className="title">Musical Monsters</h1>
 				<MonsterMenu></MonsterMenu>
-				<List>
-					{monsterList.map(
-						(monster: { id: number; name: string; picturePath: string; soundPath: string }) => (
-							<RealMonster
-								key={monster.id}
-								id={monster.id}
-								name={monster.name}
-								picturePath={monster.picturePath}
-								soundPath={monster.soundPath}
-							></RealMonster>
-						)
-					)}
-				</List>
+				<List>{monsterArray}</List>
 			</main>
 		</div>
 	);
