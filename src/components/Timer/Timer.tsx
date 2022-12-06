@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
 
 export default function Timer(): JSX.Element {
-	const [context, time, setTime] = useContext(SomethingIsPlayingContext);
+	const [context, , time, setTime] = useContext(SomethingIsPlayingContext);
 	const fullTime = 4.23;
 
 	function incrementTime() {
@@ -16,6 +16,7 @@ export default function Timer(): JSX.Element {
 
 	function firstTimer() {
 		setInterval(incrementTime, 1000);
+		console.log(time);
 	}
 
 	if (context) {
@@ -26,9 +27,7 @@ export default function Timer(): JSX.Element {
 		<>
 			<span>
 				<p>{context.toString()}</p>
-				<h1 id="timer" className={styles.timer}>
-					{time}
-				</h1>
+				<h1 className={styles.timer}>{time}</h1>
 			</span>
 		</>
 	);

@@ -1,7 +1,7 @@
-import { Monster } from 'utils/types';
+import { MonsterProps } from 'utils/types';
 import { MonsterPreview } from 'utils/types';
 
-export let monsters: Monster[] = [
+export let monsters: MonsterProps[] = [
 	{
 		id: 1,
 		name: 'Blurr',

@@ -1,37 +1,9 @@
 import Head from 'next/head';
 import Timer from 'src/components/Timer/Timer';
 import MonsterMenu from 'src/components/MonsterMenu/MonsterMenu';
-import { Monster } from 'utils/types';
-import RealMonster from 'src/components/Monster/Monster';
-import { useContext } from 'react';
-import SomethingIsPlayingContext from 'src/components/Context';
-import List from '@mui/material/List';
+import SelectedScreen from 'src/components/SelectedScreen/SelectedScreen';
 
 export default function Home() {
-	//let monsterList: Monster[] = monstersRepo.getAll();
-	const [selectedMonsters] = useContext(SomethingIsPlayingContext);
-	let monsterList: Monster[] = [];
-
-	if (selectedMonsters !== null && selectedMonsters !== typeof undefined) {
-		monsterList = selectedMonsters;
-	}
-	let monsterArray = Array.isArray(monsterList)
-		? monsterList.map(
-				(monster: { id: number; name: string; picturePath: string; soundPath: string }) => (
-					<RealMonster
-						key={monster.id}
-						id={monster.id}
-						name={monster.name}
-						picturePath={monster.picturePath}
-						soundPath={monster.soundPath}
-					></RealMonster>
-				)
-		  )
-		: [];
-
-	console.log('context:', selectedMonsters);
-	console.log('actual:', monsterList);
-
 	return (
 		<div className="container">
 			<Head>
@@ -43,8 +15,8 @@ export default function Home() {
 
 			<main className="main">
 				<h1 className="title">Musical Monsters</h1>
+				<SelectedScreen></SelectedScreen>
 				<MonsterMenu></MonsterMenu>
-				<List>{monsterArray}</List>
 			</main>
 		</div>
 	);

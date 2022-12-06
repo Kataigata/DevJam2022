@@ -13,7 +13,7 @@ type MonsterProps = {
 export default function RealMonster(props: MonsterProps): JSX.Element {
 	const { soundPath } = props;
 	let playing = false;
-	const [setContext, time] = useContext(SomethingIsPlayingContext);
+	const [, setContext, time] = useContext(SomethingIsPlayingContext);
 
 	const roar = useRef<HTMLAudioElement | undefined>(
 		typeof Audio !== 'undefined' ? new Audio(soundPath) : undefined

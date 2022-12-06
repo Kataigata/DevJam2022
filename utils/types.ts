@@ -5,7 +5,7 @@ export interface MonsterPreview {
 	soundPath: string;
 }
 
-export interface Monster {
+export interface MonsterProps {
 	id: number;
 	name: string;
 	picturePath: string;

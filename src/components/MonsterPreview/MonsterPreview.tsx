@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './MonsterPreview.module.css';
-import { Monster } from 'utils/types';
+import { MonsterProps } from 'utils/types';
 import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
 
@@ -12,18 +12,17 @@ type MonsterPreviewProps = {
 };
 
 export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element {
-	const [selectedMonsters, setSelectedMonster] = useContext(SomethingIsPlayingContext);
+	const [, , , , , setMonster] = useContext(SomethingIsPlayingContext);
 
 	function handlePreviewClick() {
-		let selectedMonster: Monster = {
+		let selectedMonster: MonsterProps = {
 			id: 1,
 			name: props.name,
 			picturePath: props.picturePath,
 			soundPath: props.soundPath,
 		};
-		let currentMonsterList: Monster[] = selectedMonsters;
-		currentMonsterList.push(selectedMonster);
-		setSelectedMonster(currentMonsterList);
+
+		setMonster(selectedMonster);
 	}
 
 	return (
