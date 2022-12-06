@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import React, { useRef } from 'react';
-import { cursorTo } from 'readline';
+import { useContext } from 'react';
+import SomethingIsPlayingContext from '../Context';
+import styles from './Monster.module.css';
 
 type MonsterProps = {
+	id: number;
 	name: string;
 	picturePath: string;
 	soundPath: string;
@@ -11,6 +14,7 @@ type MonsterProps = {
 export default function Monster(props: MonsterProps): JSX.Element {
 	const { soundPath } = props;
 	let playing = false;
+	const [context, setContext, time] = useContext(SomethingIsPlayingContext);
 
 	const roar = useRef<HTMLAudioElement | undefined>(
 		typeof Audio !== 'undefined' ? new Audio(soundPath) : undefined
@@ -18,18 +22,25 @@ export default function Monster(props: MonsterProps): JSX.Element {
 
 	const handleMonsterClick = async () => {
 		if (playing) {
-			roar.current?.pause();
 			playing = false;
+			setContext(playing);
+			roar.current?.pause();
 		} else {
-			roar.current?.play();
 			playing = true;
+			setContext(playing);
+			if (roar !== undefined && roar.current !== null && roar.current !== undefined) {
+				roar.current.currentTime = time;
+			}
+			roar.current?.play();
 		}
 	};
 
 	return (
 		<>
 			<div>
-				<p>{props.name}</p>
+				<p>
+					{props.name} {time}
+				</p>
 				<Image
 					src={props.picturePath}
 					width={100}
