@@ -32,11 +32,11 @@ export default function Home() {
 			<main className="main">
 				<h1 className="title">Musical Monsters</h1>
 				<MonsterMenu></MonsterMenu>
-				<MList></MList>
 				<section className="grid">
-					{selectedMonsters.map(
+					{monsterList.map(
 						(monster: { id: number; name: string; picturePath: string; soundPath: string }) => (
 							<RealMonster
+								key={monster.id}
 								id={monster.id}
 								name={monster.name}
 								picturePath={monster.picturePath}
