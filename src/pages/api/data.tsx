@@ -1,4 +1,5 @@
 import { Monster } from 'utils/types';
+import { MonsterPreview } from 'utils/types';
 
 export let monsters: Monster[] = [
 	{
@@ -22,6 +23,29 @@ export let monsters: Monster[] = [
 	{
 		id: 4,
 		name: 'Green',
+		picturePath: '/images/Pink.png',
+		soundPath: '/sounds/Vocals.mp3',
+	},
+];
+
+export let monsterPreviews: MonsterPreview[] = [
+	{
+		id: 1,
+		picturePath: '/images/Blurr.png',
+		soundPath: '/sounds/bass.mp3',
+	},
+	{
+		id: 2,
+		picturePath: '/images/Deeblue.png',
+		soundPath: '/sounds/drums.mp3',
+	},
+	{
+		id: 3,
+		picturePath: '/images/Green.png',
+		soundPath: '/sounds/other.mp3',
+	},
+	{
+		id: 4,
 		picturePath: '/images/Pink.png',
 		soundPath: '/sounds/Vocals.mp3',
 	},

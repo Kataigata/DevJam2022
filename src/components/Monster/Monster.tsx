@@ -11,7 +11,7 @@ type MonsterProps = {
 	soundPath: string;
 };
 
-export default function Monster(props: MonsterProps): JSX.Element {
+export default function RealMonster(props: MonsterProps): JSX.Element {
 	const { soundPath } = props;
 	let playing = false;
 	const [context, setContext, time] = useContext(SomethingIsPlayingContext);

@@ -1,17 +1,21 @@
 import Head from 'next/head';
 import Timer from 'src/components/Timer/Timer';
-import { monsters } from '../pages/api/data';
-import Monster from 'src/components/Monster/Monster';
+import MonsterMenu from 'src/components/MonsterMenu/MonsterMenu';
+import { monstersRepo } from '../helpers/monsters-repo';
+import { Monster } from 'utils/types';
+import RealMonster from 'src/components/Monster/Monster';
 
-export const getStaticProps = async () => {
-	return {
-		props: {
-			monsters,
-		},
-	};
-};
+// export const getStaticProps = async () => {
+// 	return {
+// 		props: {
+// 			monsters,
+// 		},
+// 	};
+// };
 
 export default function Home() {
+	let monsterList: Monster[] = monstersRepo.getAll();
+
 	return (
 		<div className="container">
 			<Head>
@@ -23,27 +27,18 @@ export default function Home() {
 
 			<main className="main">
 				<h1 className="title">Musical Monsters</h1>
-
+				<MonsterMenu></MonsterMenu>
 				<section className="grid">
-					{monsters.map((monster) => (
-						<Monster
+					{monsterList.map((monster) => (
+						<RealMonster
 							id={monster.id}
 							name={monster.name}
 							picturePath={monster.picturePath}
 							soundPath={monster.soundPath}
-						></Monster>
+						></RealMonster>
 					))}
 				</section>
 			</main>
 		</div>
 	);
 }
-
-// export async function getServerSideProps() {
-// 	const res = await fetch('monsters.json' as string);
-// 	const monsters = await res.json();
-
-// 	return {
-// 		props: { monsters },
-// 	};
-// }
