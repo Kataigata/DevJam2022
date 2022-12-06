@@ -12,7 +12,20 @@ type MonsterPreviewProps = {
 };
 
 export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element {
-	const [, , , , , setMonster] = useContext(SomethingIsPlayingContext);
+	const [
+		,
+		,
+		,
+		,
+		monster,
+		setMonster,
+		monsterTwo,
+		setMonsterTwo,
+		monsterThree,
+		setMonsterThree,
+		monsterFour,
+		setMonsterFour,
+	] = useContext(SomethingIsPlayingContext);
 
 	function handlePreviewClick() {
 		let selectedMonster: MonsterProps = {
@@ -22,7 +35,15 @@ export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element 
 			soundPath: props.soundPath,
 		};
 
-		setMonster(selectedMonster);
+		if (monster === null || monster === undefined || monster === '') {
+			setMonster(selectedMonster);
+		} else if (monsterTwo === null || monsterTwo === undefined || monsterTwo === '') {
+			setMonsterTwo(selectedMonster);
+		} else if (monsterThree === null || monsterThree === undefined || monsterThree === '') {
+			setMonsterThree(selectedMonster);
+		} else if (monsterFour === null || monsterFour === undefined || monsterFour === '') {
+			setMonsterFour(selectedMonster);
+		}
 	}
 
 	return (
