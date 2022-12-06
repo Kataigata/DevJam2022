@@ -4,17 +4,23 @@ import MonsterMenu from 'src/components/MonsterMenu/MonsterMenu';
 import { monstersRepo } from '../helpers/monsters-repo';
 import { Monster } from 'utils/types';
 import RealMonster from 'src/components/Monster/Monster';
-
-// export const getStaticProps = async () => {
-// 	return {
-// 		props: {
-// 			monsters,
-// 		},
-// 	};
-// };
+import { useContext, useState } from 'react';
+import SomethingIsPlayingContext from 'src/components/Context';
+import MList from 'src/components/List/MList';
 
 export default function Home() {
-	let monsterList: Monster[] = monstersRepo.getAll();
+	//let monsterList: Monster[] = monstersRepo.getAll();
+	const [context, setContext, time, setTime, selectedMonsters, setSelectedMonster] =
+		useContext(SomethingIsPlayingContext);
+	let monsterList: Monster[] = [];
+
+	if (selectedMonsters !== null && selectedMonsters !== typeof undefined) {
+		monsterList = selectedMonsters;
+	}
+	console.log('context:', selectedMonsters);
+	console.log('actual:', monsterList);
+
+	//setInterval(setList, 1000);
 
 	return (
 		<div className="container">
@@ -28,15 +34,18 @@ export default function Home() {
 			<main className="main">
 				<h1 className="title">Musical Monsters</h1>
 				<MonsterMenu></MonsterMenu>
+				<MList></MList>
 				<section className="grid">
-					{monsterList.map((monster) => (
-						<RealMonster
-							id={monster.id}
-							name={monster.name}
-							picturePath={monster.picturePath}
-							soundPath={monster.soundPath}
-						></RealMonster>
-					))}
+					{selectedMonsters.map(
+						(monster: { id: number; name: string; picturePath: string; soundPath: string }) => (
+							<RealMonster
+								id={monster.id}
+								name={monster.name}
+								picturePath={monster.picturePath}
+								soundPath={monster.soundPath}
+							></RealMonster>
+						)
+					)}
 				</section>
 			</main>
 		</div>

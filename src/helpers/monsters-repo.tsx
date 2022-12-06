@@ -27,7 +27,7 @@ function create(monster: Monster) {
 // }
 
 function saveData() {
-	fs.writeFileSync('data/monsters.json', JSON.stringify(monsters, null, 4));
+	fs.writeFile('../data/monsters.json', JSON.stringify(monsters, null, 4));
 }
 
 // async function readFile(monsters) {

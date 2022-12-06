@@ -1,20 +1,32 @@
 import Image from 'next/image';
-import Monster from '../Monster/Monster';
 import styles from './MonsterPreview.module.css';
+import { monstersRepo } from '../../helpers/monsters-repo';
+import { Monster } from 'utils/types';
+import { useContext } from 'react';
+import SomethingIsPlayingContext from '../Context';
 
 type MonsterPreviewProps = {
 	id: number;
+	name: string;
 	picturePath: string;
 	soundPath: string;
 };
 
 export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element {
-	let clickedName = '';
+	const [context, setContext, time, setTime, selectedMonsters, setSelectedMonster] =
+		useContext(SomethingIsPlayingContext);
 
-	const handlePreviewClick = async () => {
-		//add monster to data file
-		//reload the playzone component
-	};
+	function handlePreviewClick() {
+		let selectedMonster: Monster = {
+			id: 1,
+			name: props.name,
+			picturePath: props.picturePath,
+			soundPath: props.soundPath,
+		};
+		let currentMonsterList: Monster[] = selectedMonsters;
+		currentMonsterList.push(selectedMonster);
+		setSelectedMonster(currentMonsterList);
+	}
 
 	return (
 		<>

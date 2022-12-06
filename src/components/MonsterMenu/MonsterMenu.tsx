@@ -18,7 +18,9 @@ export default function MonsterMenu(): JSX.Element {
 				<section>
 					{monsterPreviews.map((preview) => (
 						<MonsterPreview
+							key={preview.id}
 							id={preview.id}
+							name={preview.name}
 							picturePath={preview.picturePath}
 							soundPath={preview.soundPath}
 						></MonsterPreview>
