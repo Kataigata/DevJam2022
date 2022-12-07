@@ -14,6 +14,11 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 	const { soundPath } = props;
 	let playing = false;
 	const [, setContext, time] = useContext(SomethingIsPlayingContext);
+	let showMonster = false;
+
+	if (props.name !== null && props.name !== undefined) {
+		showMonster = true;
+	}
 
 	const roar = useRef<HTMLAudioElement | undefined>(
 		typeof Audio !== 'undefined' ? new Audio(soundPath) : undefined
@@ -34,23 +39,25 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		}
 	};
 
-	return (
-		<>
-			<div>
-				<p>
+	if (showMonster) {
+		return (
+			<>
+				<span>
 					{props.name} {time}
-				</p>
-				<Image
-					src={props.picturePath}
-					width={100}
-					height={100}
-					alt="Image of monster"
-					onClick={() => {
-						handleMonsterClick();
-					}}
-					style={{ cursor: 'pointer' }}
-				/>
-			</div>
-		</>
-	);
+					<Image
+						src={props.picturePath}
+						width={100}
+						height={100}
+						alt="Image of monster"
+						onClick={() => {
+							handleMonsterClick();
+						}}
+						style={{ cursor: 'pointer' }}
+					/>
+				</span>
+			</>
+		);
+	} else {
+		return <></>;
+	}
 }
