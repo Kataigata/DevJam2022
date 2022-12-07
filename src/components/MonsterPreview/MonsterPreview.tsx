@@ -9,6 +9,7 @@ type MonsterPreviewProps = {
 	name: string;
 	picturePath: string;
 	soundPath: string;
+	playing: boolean;
 };
 
 export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element {
@@ -33,15 +34,19 @@ export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element 
 			name: props.name,
 			picturePath: props.picturePath,
 			soundPath: props.soundPath,
+			playing: false,
 		};
 
 		if (monster === null || monster === undefined || monster === '') {
 			setMonster(selectedMonster);
 		} else if (monsterTwo === null || monsterTwo === undefined || monsterTwo === '') {
+			selectedMonster.id = 2;
 			setMonsterTwo(selectedMonster);
 		} else if (monsterThree === null || monsterThree === undefined || monsterThree === '') {
+			selectedMonster.id = 3;
 			setMonsterThree(selectedMonster);
 		} else if (monsterFour === null || monsterFour === undefined || monsterFour === '') {
+			selectedMonster.id = 4;
 			setMonsterFour(selectedMonster);
 		}
 	}

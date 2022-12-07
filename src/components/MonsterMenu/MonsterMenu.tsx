@@ -23,6 +23,7 @@ export default function MonsterMenu(): JSX.Element {
 							name={preview.name}
 							picturePath={preview.picturePath}
 							soundPath={preview.soundPath}
+							playing={false}
 						></MonsterPreview>
 					))}
 				</section>

@@ -3,6 +3,7 @@ export interface MonsterPreview {
 	name: string;
 	picturePath: string;
 	soundPath: string;
+	playing: boolean;
 }
 
 export interface MonsterProps {
@@ -10,4 +11,5 @@ export interface MonsterProps {
 	name: string;
 	picturePath: string;
 	soundPath: string;
+	playing: boolean;
 }

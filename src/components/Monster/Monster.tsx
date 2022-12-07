@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
 
@@ -8,35 +8,58 @@ type MonsterProps = {
 	name: string;
 	picturePath: string;
 	soundPath: string;
+	playing: boolean;
 };
 
 export default function RealMonster(props: MonsterProps): JSX.Element {
-	let playing = false;
-	const [, setContext, time] = useContext(SomethingIsPlayingContext);
-	let showMonster = false;
+	const [, setContext, time, , , setMonster, , setMonsterTwo, , setMonsterThree, , setMonsterFour] =
+		useContext(SomethingIsPlayingContext);
 
 	if (props.name !== null && props.name !== undefined) {
-		showMonster = true;
-	}
+		const roar = useRef<HTMLAudioElement | undefined>(
+			typeof Audio !== 'undefined' ? new Audio(props.soundPath) : undefined
+		);
 
-	const handleMonsterClick = async () => {
-		const roar = new Audio(props.soundPath);
-
-		if (playing) {
-			playing = false;
-			setContext(playing);
-			roar.pause();
-		} else {
-			playing = true;
-			setContext(playing);
-			if (roar !== undefined && roar !== null) {
-				roar.currentTime = time;
+		const handleMonsterClick = async () => {
+			if (props.playing) {
+				updateMonsterPlaying(false);
+				setContext(props.playing);
+				roar.current?.pause();
+			} else {
+				updateMonsterPlaying(true);
+				setContext(props.playing);
+				if (
+					roar !== undefined &&
+					roar !== null &&
+					roar.current !== null &&
+					roar.current !== undefined
+				) {
+					roar.current.currentTime = time;
+				}
+				roar.current?.play();
 			}
-			roar.play();
-		}
-	};
+		};
 
-	if (showMonster) {
+		function updateMonsterPlaying(playing: boolean) {
+			let monsterToUpdate: MonsterProps = {
+				id: props.id,
+				name: props.name,
+				picturePath: props.picturePath,
+				soundPath: props.soundPath,
+				playing: playing,
+			};
+
+			if (props.id === 1) {
+				setMonster(monsterToUpdate);
+			} else if (props.id === 2) {
+				setMonsterTwo(monsterToUpdate);
+			} else if (props.id === 3) {
+				setMonsterThree(monsterToUpdate);
+			} else if (props.id === 4) {
+				setMonsterFour(monsterToUpdate);
+			}
+		}
+
 		return (
 			<>
 				<span>
