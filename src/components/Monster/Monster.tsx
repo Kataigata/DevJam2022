@@ -12,8 +12,20 @@ type MonsterProps = {
 };
 
 export default function RealMonster(props: MonsterProps): JSX.Element {
-	const [, setContext, time, , , setMonster, , setMonsterTwo, , setMonsterThree, , setMonsterFour] =
-		useContext(SomethingIsPlayingContext);
+	const [
+		context,
+		setContext,
+		time,
+		,
+		,
+		setMonster,
+		,
+		setMonsterTwo,
+		,
+		setMonsterThree,
+		,
+		setMonsterFour,
+	] = useContext(SomethingIsPlayingContext);
 
 	if (props.name !== null && props.name !== undefined) {
 		const roar = useRef<HTMLAudioElement | undefined>(
@@ -25,15 +37,12 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 				updateMonsterPlaying(false);
 				roar.current?.pause();
 			} else {
-				setContext(true);
+				if (!context) {
+					setContext(true);
+				}
 				updateMonsterPlaying(true);
-				if (
-					roar !== undefined &&
-					roar !== null &&
-					roar.current !== null &&
-					roar.current !== undefined
-				) {
-					roar.current.currentTime = time;
+				if (roar.current !== undefined) {
+					roar.current.currentTime = time / 1000000;
 				}
 				roar.current?.play();
 			}
@@ -62,7 +71,7 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		return (
 			<>
 				<span>
-					{props.name}
+					{props.name} : {roar.current?.currentTime}
 					<Image
 						src={props.picturePath}
 						width={100}

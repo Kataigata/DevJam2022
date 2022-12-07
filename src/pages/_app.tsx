@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
 	const [context, setContext] = useState(false);
-	const [time, setTime] = useState(0.01);
+	const [time, setTime] = useState(0);
 	const [monster, setMonster] = useState('');
 	const [monsterTwo, setMonsterTwo] = useState('');
 	const [monsterThree, setMonsterThree] = useState('');

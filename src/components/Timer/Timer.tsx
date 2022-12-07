@@ -4,22 +4,17 @@ import SomethingIsPlayingContext from '../Context';
 
 export default function Timer(): JSX.Element {
 	const [context, , time, setTime] = useContext(SomethingIsPlayingContext);
-	const fullTime = 4.23;
-
-	function incrementTime() {
-		if (time === fullTime) {
-			setTime(0.01);
-		} else {
-			setTime(time + 0.01);
-		}
-	}
-
-	function firstTimer() {
-		setInterval(incrementTime, 1000);
-	}
+	const fullTime = 423000000;
+	let interval;
 
 	if (context) {
-		firstTimer();
+		if (time === fullTime || time > fullTime) {
+			setTime(0);
+		} else {
+			interval = setInterval(() => {
+				setTime((prevTime: number) => prevTime + 10);
+			}, 10);
+		}
 	}
 
 	return (
