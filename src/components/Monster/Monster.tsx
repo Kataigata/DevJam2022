@@ -23,11 +23,10 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		const handleMonsterClick = async () => {
 			if (props.playing) {
 				updateMonsterPlaying(false);
-				setContext(props.playing);
 				roar.current?.pause();
 			} else {
+				setContext(true);
 				updateMonsterPlaying(true);
-				setContext(props.playing);
 				if (
 					roar !== undefined &&
 					roar !== null &&
