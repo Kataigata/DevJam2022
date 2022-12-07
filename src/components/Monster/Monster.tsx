@@ -32,21 +32,17 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 			typeof Audio !== 'undefined' ? new Audio(props.soundPath) : undefined
 		);
 
-		const handleMonsterClick = async () => {
-			if (props.playing) {
-				updateMonsterPlaying(false);
-				roar.current?.pause();
-			} else {
-				if (!context) {
-					setContext(true);
-				}
-				updateMonsterPlaying(true);
-				if (roar.current !== undefined) {
-					roar.current.currentTime = time / 1000000;
-				}
-				roar.current?.play();
+		if (!context) {
+			setContext(true);
+		}
+
+		if (!props.playing) {
+			updateMonsterPlaying(true);
+			if (roar.current !== undefined) {
+				roar.current.currentTime = time / 1000000;
 			}
-		};
+			roar.current?.play();
+		}
 
 		function updateMonsterPlaying(playing: boolean) {
 			let monsterToUpdate: MonsterProps = {
@@ -77,9 +73,6 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 						width={100}
 						height={100}
 						alt="Image of monster"
-						onClick={() => {
-							handleMonsterClick();
-						}}
 						style={{ cursor: 'pointer' }}
 					/>
 				</span>
