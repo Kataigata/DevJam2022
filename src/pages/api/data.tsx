@@ -12,7 +12,7 @@ export let monsters: MonsterProps[] = [
 		id: 2,
 		name: 'Deeblue',
 		picturePath: '/images/Deeblue.png',
-		soundPath: '/sounds/drums.mp3',
+		soundPath: '/sounds/bass.mp3',
 	},
 	{
 		id: 3,

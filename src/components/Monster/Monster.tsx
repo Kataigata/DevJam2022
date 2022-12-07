@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React from 'react';
 import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
 
@@ -11,7 +11,6 @@ type MonsterProps = {
 };
 
 export default function RealMonster(props: MonsterProps): JSX.Element {
-	const { soundPath } = props;
 	let playing = false;
 	const [, setContext, time] = useContext(SomethingIsPlayingContext);
 	let showMonster = false;
@@ -20,22 +19,20 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		showMonster = true;
 	}
 
-	const roar = useRef<HTMLAudioElement | undefined>(
-		typeof Audio !== 'undefined' ? new Audio(soundPath) : undefined
-	);
-
 	const handleMonsterClick = async () => {
+		const roar = new Audio(props.soundPath);
+
 		if (playing) {
 			playing = false;
 			setContext(playing);
-			roar.current?.pause();
+			roar.pause();
 		} else {
 			playing = true;
 			setContext(playing);
-			if (roar !== undefined && roar.current !== null && roar.current !== undefined) {
-				roar.current.currentTime = time;
+			if (roar !== undefined && roar !== null) {
+				roar.currentTime = time;
 			}
-			roar.current?.play();
+			roar.play();
 		}
 	};
 
@@ -43,7 +40,7 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		return (
 			<>
 				<span>
-					{props.name} {time}
+					{props.name}
 					<Image
 						src={props.picturePath}
 						width={100}

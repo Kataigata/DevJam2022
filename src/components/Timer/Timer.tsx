@@ -16,7 +16,6 @@ export default function Timer(): JSX.Element {
 
 	function firstTimer() {
 		setInterval(incrementTime, 1000);
-		console.log(time);
 	}
 
 	if (context) {
@@ -26,7 +25,6 @@ export default function Timer(): JSX.Element {
 	return (
 		<>
 			<span>
-				<p>{context.toString()}</p>
 				<h1 className={styles.timer}>{time}</h1>
 			</span>
 		</>

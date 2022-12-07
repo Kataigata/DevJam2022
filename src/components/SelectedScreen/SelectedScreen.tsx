@@ -9,7 +9,6 @@ export default function SelectedScreen(): JSX.Element {
 	return (
 		<>
 			<div>
-				<h2>Monsters:</h2>
 				<Monster
 					id={monster.id}
 					name={monster.name}
