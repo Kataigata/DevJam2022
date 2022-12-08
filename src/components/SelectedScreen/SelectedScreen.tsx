@@ -3,8 +3,35 @@ import { useContext } from 'react';
 import Monster from '../Monster/Monster';
 
 export default function SelectedScreen(): JSX.Element {
-	const [, , , , monster, , monsterTwo, , monsterThree, , monsterFour] =
-		useContext(SomethingIsPlayingContext);
+	const [
+		,
+		,
+		,
+		,
+		monster,
+		,
+		monsterTwo,
+		,
+		monsterThree,
+		,
+		monsterFour,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		monsterFive,
+		,
+		monsterSix,
+	] = useContext(SomethingIsPlayingContext);
 
 	return (
 		<>
@@ -36,6 +63,20 @@ export default function SelectedScreen(): JSX.Element {
 					picturePath={monsterFour.picturePath}
 					soundPath={monsterFour.soundPath}
 					playing={monsterFour.playing}
+				></Monster>
+				<Monster
+					id={monsterFive.id}
+					name={monsterFive.name}
+					picturePath={monsterFive.picturePath}
+					soundPath={monsterFive.soundPath}
+					playing={monsterFive.playing}
+				></Monster>
+				<Monster
+					id={monsterSix.id}
+					name={monsterSix.name}
+					picturePath={monsterSix.picturePath}
+					soundPath={monsterSix.soundPath}
+					playing={monsterSix.playing}
 				></Monster>
 			</div>
 		</>

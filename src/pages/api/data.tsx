@@ -19,4 +19,22 @@ export let monsterPreviews: MonsterProps[] = [
 		picturePath: '/images/Green.png',
 		soundPath: 'keyboard',
 	},
+	{
+		id: 4,
+		name: 'Pinky',
+		picturePath: '/images/Pink.png',
+		soundPath: 'backing',
+	},
+	{
+		id: 5,
+		name: 'Rawred',
+		picturePath: '/images/Rrred.png',
+		soundPath: 'lead',
+	},
+	{
+		id: 6,
+		name: 'Purp',
+		picturePath: '/images/Purp.png',
+		soundPath: 'percussion',
+	},
 ];

@@ -26,6 +26,22 @@ export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element 
 		setMonsterThree,
 		monsterFour,
 		setMonsterFour,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		,
+		monsterFive,
+		setMonsterFive,
+		monsterSix,
+		setMonsterSix,
 	] = useContext(SomethingIsPlayingContext);
 
 	function handlePreviewClick() {
@@ -47,6 +63,12 @@ export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element 
 		} else if (monsterFour === null || monsterFour === undefined || monsterFour === '') {
 			selectedMonster.id = 4;
 			setMonsterFour(selectedMonster);
+		} else if (monsterFive === null || monsterFive === undefined || monsterFive === '') {
+			selectedMonster.id = 5;
+			setMonsterFive(selectedMonster);
+		} else if (monsterSix === null || monsterSix === undefined || monsterSix === '') {
+			selectedMonster.id = 6;
+			setMonsterSix(selectedMonster);
 		}
 	}
 

@@ -12,10 +12,14 @@ export default function App({ Component, pageProps }: AppProps) {
 	const [monsterTwo, setMonsterTwo] = useState('');
 	const [monsterThree, setMonsterThree] = useState('');
 	const [monsterFour, setMonsterFour] = useState('');
+	const [monsterFive, setMonsterFive] = useState('');
+	const [monsterSix, setMonsterSix] = useState('');
 	const [bassMuted, setBassMuted] = useState(true);
 	const [drumsMuted, setDrumsMuted] = useState(true);
-	const [otherMuted, setOtherMuted] = useState(true);
-	const [vocalsMuted, setVocalsMuted] = useState(true);
+	const [keyboardMuted, setKeyboardMuted] = useState(true);
+	const [backingMuted, setBackingMuted] = useState(true);
+	const [leadMuted, setLeadMuted] = useState(true);
+	const [percussionMuted, setPercussionMuted] = useState(true);
 
 	return (
 		<SomethingIsPlayingContext.Provider
@@ -36,10 +40,18 @@ export default function App({ Component, pageProps }: AppProps) {
 				setBassMuted,
 				drumsMuted,
 				setDrumsMuted,
-				otherMuted,
-				setOtherMuted,
-				vocalsMuted,
-				setVocalsMuted,
+				keyboardMuted,
+				setKeyboardMuted,
+				backingMuted,
+				setBackingMuted,
+				leadMuted,
+				setLeadMuted,
+				percussionMuted,
+				setPercussionMuted,
+				monsterFive,
+				setMonsterFive,
+				monsterSix,
+				setMonsterSix,
 			]}
 		>
 			<Component {...pageProps} />

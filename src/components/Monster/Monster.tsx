@@ -30,9 +30,17 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		,
 		setDrumsMuted,
 		,
-		setOtherMuted,
+		setKeyboardMuted,
 		,
-		setVocalsMuted,
+		setBackingMuted,
+		,
+		setLeadMuted,
+		,
+		setPercussionMuted,
+		,
+		setMonsterFive,
+		,
+		setMonsterSix,
 	] = useContext(SomethingIsPlayingContext);
 
 	if (props.name !== null && props.name !== undefined) {
@@ -43,7 +51,13 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 			} else if (props.soundPath === 'drums') {
 				setDrumsMuted(false);
 			} else if (props.soundPath === 'keyboard') {
-				setOtherMuted(false);
+				setKeyboardMuted(false);
+			} else if (props.soundPath === 'backing') {
+				setBackingMuted(false);
+			} else if (props.soundPath === 'lead') {
+				setLeadMuted(false);
+			} else if (props.soundPath === 'percussion') {
+				setPercussionMuted(false);
 			}
 		}
 
@@ -64,6 +78,10 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 				setMonsterThree(monsterToUpdate);
 			} else if (props.id === 4) {
 				setMonsterFour(monsterToUpdate);
+			} else if (props.id === 5) {
+				setMonsterFive(monsterToUpdate);
+			} else if (props.id === 6) {
+				setMonsterSix(monsterToUpdate);
 			}
 		}
 
