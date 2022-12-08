@@ -12,5 +12,14 @@ body {
 }
 
 .theTitle {
-	color: #637899;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
+	font-size: 60px;
+	font-weight: 800;
+	color: rgba(218, 232, 230, 1);
+	text-transform: uppercase;
+	font-style: normal;
+	text-decoration: none;
+	line-height: 1em;
+	letter-spacing: 1.8px;
+	text-shadow: 3px 2px 4px rgba(149, 171, 168, 1);
 }

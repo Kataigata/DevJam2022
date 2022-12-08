@@ -7,8 +7,17 @@
 }
 
 .title {
-	color: #97accf;
+	padding-left: 1%;
+	color: #637899;
 	font-size: 30px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
+	font-weight: 800;
+	color: rgba(218, 232, 230, 1);
+	text-transform: uppercase;
+	font-style: normal;
+	text-decoration: none;
+	line-height: 1em;
+	letter-spacing: 1.8px;
 }
 
 .selection {

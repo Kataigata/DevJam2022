@@ -15,8 +15,8 @@ export default function MonsterMenu(): JSX.Element {
 	return (
 		<>
 			<div className={styles.menu}>
+				<span className={styles.title}>Select a monster</span>
 				<div className={styles.selection}>
-					<span className={styles.title}>Select a monster</span>
 					{monsterPreviews.map((preview) => (
 						<MonsterPreview
 							key={preview.id}
