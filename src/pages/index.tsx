@@ -14,7 +14,7 @@ export default function Home() {
 			<MusicManager></MusicManager>
 
 			<main className="main">
-				<h1 className="title">Musical Monsters</h1>
+				<h1 className="theTitle">Musical Monsters</h1>
 				<SelectedScreen></SelectedScreen>
 				<MonsterMenu></MonsterMenu>
 			</main>

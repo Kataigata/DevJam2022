@@ -1,6 +1,7 @@
 import SomethingIsPlayingContext from '../Context';
 import { useContext } from 'react';
 import Monster from '../Monster/Monster';
+import styles from './SelectedScreen.module.css';
 
 export default function SelectedScreen(): JSX.Element {
 	const [
@@ -35,7 +36,7 @@ export default function SelectedScreen(): JSX.Element {
 
 	return (
 		<>
-			<div>
+			<div className={styles.grid}>
 				<Monster
 					id={monster.id}
 					name={monster.name}

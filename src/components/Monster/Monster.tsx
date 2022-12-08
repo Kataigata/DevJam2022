@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React, { useRef } from 'react';
 import { useContext } from 'react';
 import SomethingIsPlayingContext from '../Context';
+import styles from './Monster.module.css';
 
 type MonsterProps = {
 	id: number;
@@ -115,7 +116,6 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		return (
 			<>
 				<span>
-					{props.name}
 					<Image
 						src={props.picturePath}
 						width={100}
@@ -126,6 +126,7 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 						}}
 						style={{ cursor: 'pointer' }}
 					/>
+					<p className={styles.name}>{props.name}</p>
 				</span>
 			</>
 		);
