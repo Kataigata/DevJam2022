@@ -45,44 +45,71 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 
 	if (props.name !== null && props.name !== undefined) {
 		if (!props.playing) {
-			updateMonsterPlaying(true);
-			if (props.soundPath === 'bass') {
-				setBassMuted(false);
-			} else if (props.soundPath === 'drums') {
-				setDrumsMuted(false);
-			} else if (props.soundPath === 'keyboard') {
-				setKeyboardMuted(false);
-			} else if (props.soundPath === 'backing') {
-				setBackingMuted(false);
-			} else if (props.soundPath === 'lead') {
-				setLeadMuted(false);
-			} else if (props.soundPath === 'percussion') {
-				setPercussionMuted(false);
-			}
-		}
+			updateMusicState(false);
 
-		function updateMonsterPlaying(playing: boolean) {
 			let monsterToUpdate: MonsterProps = {
 				id: props.id,
 				name: props.name,
 				picturePath: props.picturePath,
 				soundPath: props.soundPath,
-				playing: playing,
+				playing: true,
 			};
 
+			updateMonster(monsterToUpdate);
+		}
+
+		function updateMonster(updatedMonster: MonsterProps | undefined) {
 			if (props.id === 1) {
-				setMonster(monsterToUpdate);
+				setMonster(updatedMonster);
 			} else if (props.id === 2) {
-				setMonsterTwo(monsterToUpdate);
+				setMonsterTwo(updatedMonster);
 			} else if (props.id === 3) {
-				setMonsterThree(monsterToUpdate);
+				setMonsterThree(updatedMonster);
 			} else if (props.id === 4) {
-				setMonsterFour(monsterToUpdate);
+				setMonsterFour(updatedMonster);
 			} else if (props.id === 5) {
-				setMonsterFive(monsterToUpdate);
+				setMonsterFive(updatedMonster);
 			} else if (props.id === 6) {
-				setMonsterSix(monsterToUpdate);
+				setMonsterSix(updatedMonster);
 			}
+		}
+
+		function destroyMonster() {
+			updateMusicState(true);
+			if (props.id === 1) {
+				setMonster('');
+			} else if (props.id === 2) {
+				setMonsterTwo('');
+			} else if (props.id === 3) {
+				setMonsterThree('');
+			} else if (props.id === 4) {
+				setMonsterFour('');
+			} else if (props.id === 5) {
+				setMonsterFive('');
+			} else if (props.id === 6) {
+				setMonsterSix('');
+			}
+		}
+
+		function updateMusicState(muted: boolean) {
+			if (props.soundPath === 'bass') {
+				setBassMuted(muted);
+			} else if (props.soundPath === 'drums') {
+				setDrumsMuted(muted);
+			} else if (props.soundPath === 'keyboard') {
+				setKeyboardMuted(muted);
+			} else if (props.soundPath === 'backing') {
+				setBackingMuted(muted);
+			} else if (props.soundPath === 'lead') {
+				setLeadMuted(muted);
+			} else if (props.soundPath === 'percussion') {
+				setPercussionMuted(muted);
+			}
+		}
+
+		function handleMonsterClick() {
+			destroyMonster();
+			//stop the music
 		}
 
 		return (
@@ -94,6 +121,9 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 						width={100}
 						height={100}
 						alt="Image of monster"
+						onClick={() => {
+							handleMonsterClick();
+						}}
 						style={{ cursor: 'pointer' }}
 					/>
 				</span>

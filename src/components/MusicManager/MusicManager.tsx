@@ -68,6 +68,7 @@ export default function MusicManager(): JSX.Element {
 	}
 
 	if (percussion.current !== undefined) {
+		percussion.current.volume = 0.4;
 		percussion.current.muted = percussionMuted;
 	}
 
