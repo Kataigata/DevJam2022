@@ -3,7 +3,7 @@ import '../styles/utils.css';
 
 import type { AppProps } from 'next/app';
 import SomethingIsPlayingContext from 'src/components/Context';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
 	const [context, setContext] = useState(false);
@@ -12,6 +12,11 @@ export default function App({ Component, pageProps }: AppProps) {
 	const [monsterTwo, setMonsterTwo] = useState('');
 	const [monsterThree, setMonsterThree] = useState('');
 	const [monsterFour, setMonsterFour] = useState('');
+	const [bassMuted, setBassMuted] = useState(true);
+	const [drumsMuted, setDrumsMuted] = useState(true);
+	const [otherMuted, setOtherMuted] = useState(true);
+	const [vocalsMuted, setVocalsMuted] = useState(true);
+
 	return (
 		<SomethingIsPlayingContext.Provider
 			value={[
@@ -27,6 +32,14 @@ export default function App({ Component, pageProps }: AppProps) {
 				setMonsterThree,
 				monsterFour,
 				setMonsterFour,
+				bassMuted,
+				setBassMuted,
+				drumsMuted,
+				setDrumsMuted,
+				otherMuted,
+				setOtherMuted,
+				vocalsMuted,
+				setVocalsMuted,
 			]}
 		>
 			<Component {...pageProps} />

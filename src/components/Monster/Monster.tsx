@@ -25,23 +25,26 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		setMonsterThree,
 		,
 		setMonsterFour,
+		,
+		setBassMuted,
+		,
+		setDrumsMuted,
+		,
+		setOtherMuted,
+		,
+		setVocalsMuted,
 	] = useContext(SomethingIsPlayingContext);
 
 	if (props.name !== null && props.name !== undefined) {
-		const roar = useRef<HTMLAudioElement | undefined>(
-			typeof Audio !== 'undefined' ? new Audio(props.soundPath) : undefined
-		);
-
-		if (!context) {
-			setContext(true);
-		}
-
 		if (!props.playing) {
 			updateMonsterPlaying(true);
-			if (roar.current !== undefined) {
-				roar.current.currentTime = time / 1000000;
+			if (props.soundPath === 'bass') {
+				setBassMuted(false);
+			} else if (props.soundPath === 'drums') {
+				setDrumsMuted(false);
+			} else if (props.soundPath === 'keyboard') {
+				setOtherMuted(false);
 			}
-			roar.current?.play();
 		}
 
 		function updateMonsterPlaying(playing: boolean) {
@@ -67,7 +70,7 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 		return (
 			<>
 				<span>
-					{props.name} : {roar.current?.currentTime}
+					{props.name}
 					<Image
 						src={props.picturePath}
 						width={100}

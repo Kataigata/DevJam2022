@@ -34,7 +34,6 @@ export default function MonsterPreview(props: MonsterPreviewProps): JSX.Element 
 			name: props.name,
 			picturePath: props.picturePath,
 			soundPath: props.soundPath,
-			playing: false,
 		};
 
 		if (monster === null || monster === undefined || monster === '') {

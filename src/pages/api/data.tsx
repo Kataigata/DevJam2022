@@ -1,64 +1,22 @@
 import { MonsterProps } from 'utils/types';
-import { MonsterPreview } from 'utils/types';
 
-export let monsters: MonsterProps[] = [
+export let monsterPreviews: MonsterProps[] = [
 	{
 		id: 1,
 		name: 'Blurr',
 		picturePath: '/images/Blurr.png',
-		soundPath: '/sounds/bass.mp3',
-		playing: false,
+		soundPath: 'bass',
 	},
 	{
 		id: 2,
 		name: 'Deeblue',
 		picturePath: '/images/Deeblue.png',
-		soundPath: '/sounds/bass.mp3',
-		playing: false,
+		soundPath: 'drums',
 	},
 	{
 		id: 3,
 		name: 'Green',
 		picturePath: '/images/Green.png',
-		soundPath: '/sounds/other.mp3',
-		playing: false,
-	},
-	{
-		id: 4,
-		name: 'Pink',
-		picturePath: '/images/Pink.png',
-		soundPath: '/sounds/Vocals.mp3',
-		playing: false,
-	},
-];
-
-export let monsterPreviews: MonsterPreview[] = [
-	{
-		id: 1,
-		name: 'Blurr',
-		picturePath: '/images/Blurr.png',
-		soundPath: '/sounds/bass.mp3',
-		playing: false,
-	},
-	{
-		id: 2,
-		name: 'Deeblue',
-		picturePath: '/images/Deeblue.png',
-		soundPath: '/sounds/drums.mp3',
-		playing: false,
-	},
-	{
-		id: 3,
-		name: 'Green',
-		picturePath: '/images/Green.png',
-		soundPath: '/sounds/other.mp3',
-		playing: false,
-	},
-	{
-		id: 4,
-		name: 'Pink',
-		picturePath: '/images/Pink.png',
-		soundPath: '/sounds/Vocals.mp3',
-		playing: false,
+		soundPath: 'keyboard',
 	},
 ];
