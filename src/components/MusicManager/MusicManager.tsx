@@ -56,6 +56,7 @@ export default function MusicManager(): JSX.Element {
 	}
 
 	if (keyboard.current !== undefined) {
+		keyboard.current.volume = 0.6;
 		keyboard.current.muted = keyboardMuted;
 	}
 
