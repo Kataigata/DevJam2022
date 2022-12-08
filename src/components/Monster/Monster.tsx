@@ -110,7 +110,6 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 
 		function handleMonsterClick() {
 			destroyMonster();
-			//stop the music
 		}
 
 		return (
@@ -125,6 +124,7 @@ export default function RealMonster(props: MonsterProps): JSX.Element {
 							handleMonsterClick();
 						}}
 						style={{ cursor: 'pointer' }}
+						className={styles.monsterActive}
 					/>
 					<p className={styles.name}>{props.name}</p>
 				</span>
